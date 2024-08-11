@@ -6,6 +6,22 @@ const app = express();
 
 app.use(express.urlencoded({extended: false}))
 
+app.use((req,res,next) => {
+    fs.appendFile("./log.txt", `\n First Middleware ${Date.now()} : ${req.method} : ${req.url}`, (err, data) => {
+        if (err) {
+            console.log("Error : ", err);
+        } else {
+            console.log("First middleware called");
+            next();
+        }
+    })
+})
+
+app.use((req,res,next) => {
+    console.log(`Second middleware called by ${req.userName}`);
+    next();
+})
+
 const PORT = 8000;
 
 app.get('/', (req, res) => {
