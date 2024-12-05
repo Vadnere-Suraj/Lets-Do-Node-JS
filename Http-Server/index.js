@@ -8,11 +8,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.send("Welcome to the About Page")
+    res.send("Lets go")
 })
 
 
-app.get('/contact', (req, res) => {
+app.get('/contact', (req,res) => {
     res.send("Welcome to the Contact Page")
 })
 
@@ -55,11 +55,5 @@ app.get('/search', (req, res) => {
 //         }
 //     })
 // }
-const server = http.createServer(app)
-    
-
-  
-    
-
-server.listen(8000, () => console.log("Server Started"))
+app.listen(8000, () => console.log("Server Started"));
 
