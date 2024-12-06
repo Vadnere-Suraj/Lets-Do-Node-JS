@@ -20,8 +20,8 @@ async function handleCreateShortId(req, res) {
         visitHistory: []
     })
 
-
-    return res.status(201).json({ message: `URL enterd successfully ${shortid}` })
+    const allurls = await URL.find({})
+    return res.status(201).render('home', { shortid: shortid, url : bod.url, urlss : allurls })
 }
 
 async function handleRedirect(req, res) {
