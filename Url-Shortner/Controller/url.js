@@ -17,11 +17,12 @@ async function handleCreateShortId(req, res) {
     await URL.create({
         redirectURl: bod.url,
         shortID: shortid,
-        visitHistory: []
+        visitHistory: [],
+        createdBy: req.user._id
     })
 
-    const allurls = await URL.find({})
-    return res.status(201).render('home', { shortid: shortid, url : bod.url, urlss : allurls })
+    
+    return res.status(201).redirect('/')
 }
 
 async function handleRedirect(req, res) {

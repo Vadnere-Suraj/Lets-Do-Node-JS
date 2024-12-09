@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+
+    <style>
+        *{
+            margin: 0;
+        }
+        .page{ 
+            height: 100vh;
+            width: 100vw;
+            background-color: #23DC6C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box{
+            background-color: #23DCC8;
+            height: 80%;
+            width: 85%;
+            border-radius: 10px;
+            border: 5px solid green;
+            padding: 10px;
+            display: flex;
+            
+            align-items: center;
+            flex-direction: column;
+            /* box-shadow: 20px 20px 5px green; */
+        }
+
+        .box p {
+            padding: 10px;
+            font-size: large;
+            font-family: monospace;
+        }
+        .title{
+            color: #21371f;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .inputdata {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+           
+            
+        }
+
+        .inputdata input{
+            padding: 10px;
+            font-size: larger;
+            width : 400px;
+            border-radius: 15px;
+        }
+
+        .inputdata button{
+            margin-top: 15px;
+            font-size: larger;
+            padding: 8px;
+            width: 70%;
+            border-radius: 10px;
+        }
+        .inline{
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tabelData{
+            margin: 50px;
+            font-size: 20px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <div class="box">
+            <h1 class="title">SignUp</h1>
+
+            <div class="inputdata">
+                <form class="inline" method="post" action="/user">
+                    <input type="text" name="username" placeholder="Enter your name" required>
+                    <input type="text" name="email" placeholder="Enter your email" required>
+                    <input type="text" name="password" placeholder="Enter your passsword" required>
+                    <span> Already have a account <a href="/login">Login</a> </span>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+            
+            
+            
+
+            
+
+
+        </div>
+
+        
+    </div>
+    
+</body>
+</html> 
