@@ -27,4 +27,4 @@ client.on('interactionCreate', interaction => {
 
 })
 
-client.login('MTMxNjc3MDQ2NDkwMjgwNzcwMw.Gb1uZc.dSxlD-8KKAl90R5F192DnQih-Vc_torampod_Y')
+client.login('')
