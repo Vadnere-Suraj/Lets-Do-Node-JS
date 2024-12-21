@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div style="position: relative; height: 100vh;">
+        <div id="messages"></div>
+
+        <div style="position: absolute; bottom: 10px; background-color: bisque; width: 100%; padding: 10px;">
+            <input type="text" placeholder="ENter message"" name="message" id="message-data">
+            <button id="sendMessage">Craete Socket</button>
+        </div>
+    </div>
+   
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        const socket = io()
+        const messageInput = document.getElementById('message-data')
+        const sendButton = document.getElementById('sendMessage')
+        const messages = document.getElementById('messages')
+
+        sendButton.addEventListener("click", () => {
+            const message = messageInput.value.trim()
+
+            socket.emit("user-message", message)
+        })
+
+        socket.on("server-message", (message) => {
+            console.log(message);
+            const p = document.createElement("p")
+            p.textContent = message
+
+            messages.appendChild(p)
+            
+        })
+        
+       
+    </script>
+</body>
+</html>
