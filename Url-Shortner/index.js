@@ -5,7 +5,7 @@ const staticRoute = require('./Routes/staticRoutes')
 const path = require('path')
 const userRoute = require('./Routes/user')
 const cookieParser = require('cookie-parser')
-const {restrictedToLoginOnly, checkAuth} = require('./Middlewares/auth')
+const {checkForAuthentication, restrictTo} = require('./Middlewares/auth')
 
 
 const PORT = 8000
@@ -18,10 +18,11 @@ app.set("views", path.resolve('./Views') )
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(cookieParser())
+app.use(checkForAuthentication)
 
-app.use('/url',restrictedToLoginOnly ,urlRoute)
+app.use('/url',restrictTo(['NORMAL', 'ADMIN']) ,urlRoute)
 app.use('/user', userRoute)
-app.use('/',checkAuth, staticRoute)
+app.use('/', staticRoute)
 app.listen(PORT, () => console.log(`Server started at port no : ${PORT}`))
 
 

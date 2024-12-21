@@ -1,4 +1,4 @@
-const sessionIdToUserMap = new Map();
+
 const jwt = require('jsonwebtoken')
 const secretkey = '$suraj$0207#'
 
@@ -8,7 +8,8 @@ function setUser(user) {
     return jwt.sign({
         _id : user._id,
         name : user.name,
-        email : user.email
+        email : user.email,
+        role : user.role
     }, secretkey)
 }
 
