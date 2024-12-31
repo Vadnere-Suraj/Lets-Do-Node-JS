@@ -22,10 +22,20 @@
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="/user/about-us">About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/user/contact-us">Contact Us</a>
+          </li>
+
           <% if (locals.user) { %>
             <li class="nav-item">
               <a class="nav-link" href="/blog/addBlog">Add Blog</a>
             </li>
+
+            
 
             <li class="nav-item dropdown">
               <a
@@ -50,6 +60,8 @@
 
 
           <% } %>
+
+          
           
           
         </ul>

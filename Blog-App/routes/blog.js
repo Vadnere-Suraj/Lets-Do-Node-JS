@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 
 router.get("/addBlog", (req, res) => {
   if (!req.user) {
-    return res.redirect("/")
+    return res.redirect("/user/signin")
   }
   
     return res.render("addBlog", {

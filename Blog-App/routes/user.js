@@ -65,6 +65,12 @@ router.get("/profile", async (req, res) => {
     })
 })
 
+router.get("/contact-us", (req, res) => {
+    return res.render("contact", {
+        user : req.user,
+    })
+})
+
 
 
 

@@ -6,12 +6,52 @@
   </head>
   <body class="bg-dark-subtle">
     <%- include("./partials/navbar") %> <% if (locals.blogs) { %>
-    <div class="container mt-5 row row-cols-4">
-      <% blogs.forEach(blog => { %>
 
-      
-        <div class="col">
-          <div class="card" style="width: 18rem">
+    <div class="bg-secondary">
+      <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6 rounded">
+            <img
+              src="/images/hero-img.jpg"
+              class="d-block mx-lg-auto img-fluid rounded border"
+              alt="Bootstrap Themes"
+              width="700"
+              height="500"
+              loading="lazy"
+            />
+          </div>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">
+              Unleash Your Creativity, Share Your Stories
+            </h1>
+            <p class="lead text-light">
+              Join our community of bloggers and share your passion, ideas, and
+              experiences with the world. Start writing today with Blogify!
+            </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <a href="/blog/addBlog" class="btn btn-dark btn-lg px-4 me-md-2">
+                Start Blogging
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div
+        class="d-flex flex-column justify-content-cente align-items-center mb-5"
+      >
+        <div>
+          <h2>Recent Blogs</h2>
+        </div>
+
+        <div class="border border-2 border-dark col-1"></div>
+      </div>
+      <div class="row">
+        <% blogs.forEach(blog => { %>
+
+        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+          <div class="card" style="width: 20rem; height: 20rem">
             <img
               src="<%= blog.coverImageUrl %>"
               class="card-img-top"
@@ -19,17 +59,18 @@
             />
             <div class="card-body">
               <h5 class="card-title"><%= blog.title %></h5>
-            
+
               <a href="/blog/<%= blog._id %>" class="btn btn-primary"
                 >Read Blog</a
               >
             </div>
           </div>
         </div>
-      
 
-      <% }) %>
+        <% }) %>
+      </div>
     </div>
-    <% } %> <%- include("./partials/script") %>
+    <%- include("./partials/footer") %> <% } %> <%- include("./partials/script")
+    %>
   </body>
 </html>
