@@ -18,17 +18,17 @@ mongoose.connect("mongodb://127.0.0.1:27017/blogify").then(() => console.log("DB
 app.use(cookieParser())
 app.use(checkAuth("token"))
 
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 app.use('/user', userRouter)
 app.use('/blog', blogRouter)
 app.use(express.static(path.resolve('./uploads')))
 
-app.get("/" ,async (req, res) => {
-    const blogs = await blog.find().sort({_id : -1}).limit(4)
-    return res.render("home",  {
-        user : req.user,
+app.get("/", async (req, res) => {
+    const blogs = await blog.find().sort({ _id: -1 }).limit(4)
+    return res.render("home", {
+        user: req.user,
         blogs: blogs
     })
 })
 
-app.listen(PORT, () => console.log(`Server Started at port ${PORT}`))
+app.listen(PORT, () => console.log(`Server has been Started at port ${PORT}`))
